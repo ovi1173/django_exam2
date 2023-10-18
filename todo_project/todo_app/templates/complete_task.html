@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="width:70%;margin:auto"> 
+    <h1 class="btn-info">TASKS</h1>
+    <strong></strong>
+</div>
+
+<table class="table table-bordered border-primary" style="width:70%;margin:auto">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.taskTitle }}</td>
+            <td>{{ task.taskDescription }}</td>
+            <td>
+                {% if not task.is_completed %}
+                    <a href="{% url 'complete_task' task.id %}" class="btn btn-success btn-sm">Complete</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor }
+    </tbody>
+</table>
+
+{% endblock %}

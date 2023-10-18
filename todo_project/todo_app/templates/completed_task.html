@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div style="width:60%;margin:auto">
+    <h1 class="text-info">Task_Completed</h1>
+    <p>The task has been successfully marked as completed.</p>
+    <p><strong>Title:</strong> {{ task.taskTitle }}</p>
+    <p><strong>Description:</strong> {{ task.taskDescription }}</p>
+    <a href="{% url 'completed_task' %}" class="btn btn-primary">Back to completed Tasks</a>
+</div>
+{% endblock %}
+
